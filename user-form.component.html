@@ -1,0 +1,79 @@
+<div class="container">
+  <div class="jumbotron">
+  <form [formGroup]="rFormgroup" (ngSubmit)="addPost(rFormgroup.value)">
+    <div class="container" *ngIf="show">
+      <div class="form-group">
+        <label>First Name</label>
+        <input type="text" formControlName="FirstName" placeholder="First name" >
+      </div>
+
+      <div class="form-group">
+        <label>Last Name </label>
+        <input type="text" formControlName="lastName" placeholder="Last name">
+      </div>
+
+      <div class="form-group">
+        <label>Email address</label>
+        <input type="text" formControlName="email" placeholder="name@example.com">
+      </div>
+      <button (click)="toggle()"><i class="material-icons">arrow_forward</i></button>
+    </div>
+      <div *ngIf="!show">
+        <div class="form-group">
+          <label>Address</label>
+          <input type="text" formControlName="Address" placeholder="Enter the address">
+        </div>
+
+        <div class="form-group">
+          <label>Country</label>
+          <input type="text" formControlName="country" placeholder="Country">
+        </div>
+
+        <div class="form-group">
+          <label>State </label>
+          <input type="text" formControlName="state" placeholder="State">
+        </div>
+
+        <div class="form-group">
+          <label>Mobile number </label>
+          <input type="number" formControlName="phoneNumber" placeholder="Mobile Number" >
+        </div>
+        <button (click)="toggle()"><i class="material-icons">arrow_backward</i></button>
+        <input type="submit" value="Submit Form" [disabled]="!rFormgroup.valid" class="btn btn-primary">
+      </div>
+  </form>
+
+</div>
+
+
+  <table class="table">
+    <thead>
+      <tr>
+        <th scope="col">Check box</th>
+        <th scope="col">FirstName</th>
+        <th scope="col">lastname</th>
+        <th scope="col">Email</th>
+        <th scope="col">Address</th>
+        <th scope="col">country</th>
+        <th scope="col">state</th>
+        <th scope="col">Mobile</th>
+        <th scope="col">update</th>
+      </tr>
+    </thead>
+    <tbody>
+      <tr>
+        <td scope="row">
+          <input type="checkbox" (click)="count()">Verify Mobile Number<br>
+        </td>
+        <td>{{ FirstName }}</td>
+        <td>{{ lastName }}</td>
+        <td>{{ email }}</td>
+        <td>{{ Address }}</td>
+        <td>{{ country }}</td>
+        <td>{{ state }}</td>
+        <td>{{ phoneNumber }}</td>
+        <td><input type="submit" (click)="toggle()" value="Edit form"class="btn btn-primary" ></td>
+      </tr>
+    </tbody>
+  </table>
+  </div>

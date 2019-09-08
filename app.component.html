@@ -1,0 +1,14 @@
+<nav class="nav pink lighten-4 py-4" >
+  <li class="nav-item">
+    <a class="nav-link active" href="">New Form</a>
+  </li>
+  <li *ngIf="!isMobileVerifyChecked" class="nav-item">
+    <a class="nav-link">Counter=0</a>
+  </li>
+  <li *ngIf="isMobileVerifyChecked" class="nav-item">
+    <a class="nav-link">Counter={{counter.counter}}</a>
+  </li>
+</nav>
+<div class ="container">
+<app-user-form (change)="OnClickCheckbox($event)"></app-user-form>
+</div>
